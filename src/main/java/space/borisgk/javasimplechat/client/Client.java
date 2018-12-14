@@ -15,14 +15,14 @@ public class Client implements Runnable {
 
     @SneakyThrows
     public Client() {
-        socket = new Socket(HOST, PORT);
-        scanner = new Scanner(System.in);
-        pw = new PrintWriter(socket.getOutputStream());
     }
 
     @SneakyThrows
     public void start() {
-        (new Thread(new Accepter(socket))).start();
+        socket = new Socket(HOST, PORT);
+        scanner = new Scanner(System.in);
+        pw = new PrintWriter(socket.getOutputStream());
+//        (new Thread(new Accepter(socket))).start();
         while (true) {
             send(scanner.next());
             Thread.sleep(100);

@@ -19,9 +19,10 @@ public class Accepter implements Runnable {
     @SneakyThrows
     public void run() {
         while (true) {
-            pw.print(scanner.next());
+            while (scanner.hasNext()) {
+                pw.print(scanner.next());
+            }
             pw.flush();
-            Thread.sleep(100);
         }
     }
 }
